@@ -50,4 +50,4 @@ jobs:
     
     # Generates an execution apply for Terraform
     - name: Terraform Apply
-      run: terraform apply dev.tfplan -auto-approve -input=false 
+      run: terraform apply dev.tfplan
