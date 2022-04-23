@@ -50,4 +50,5 @@ jobs:
     
     # Generates an execution apply for Terraform
     - name: Terraform Apply
-      run: terraform apply dev.tfplan -input=false 
+      run: terraform apply dev.tfplan
+
