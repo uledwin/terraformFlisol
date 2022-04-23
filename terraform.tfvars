@@ -1,0 +1,8 @@
+rg_name     = "rg"
+location    = "East US"
+vnet_name   = "vnet"
+subnet_name = "subnet"
+public_ip   = "public-ip"
+ngs_name    = "nsg"
+nic_name    = "nic"
+vm_app_name = "myfirstvm"
