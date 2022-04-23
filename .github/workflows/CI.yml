@@ -46,7 +46,7 @@ name: 'Terraform'
 on:
   push:
     branches:  
-    - terraformFlisol
+    - terraformAzure
   pull_request:
     branches:
     - main
