@@ -11,7 +11,7 @@ variable "location" {
 variable "prefix" {
   description = "Prefix resources"
   type        = string
-  default     = "eult-rampup"
+  default     = "eultengo"
 }
 
 variable "vnet_name" {
