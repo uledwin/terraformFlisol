@@ -1,16 +1,18 @@
-name: 'Terraform'
+name: 'Terraform CD Pipeline'
 
 on:
-  pull_request:
-    branches:
-    - main
+  pull_request_review:
+    types: [submitted]
+  branches:
+  - main
 
 permissions:
   contents: read
 
 jobs:
   terraform:
-    name: 'Terraform'
+    if: github.event.review.state == 'approved'
+    name: 'Terraform CD Pipeline'
     runs-on: ubuntu-latest
     environment: production
     env:
@@ -45,9 +47,9 @@ jobs:
 
     # Generates an execution plan for Terraform
     - name: Terraform Plan
-      run: terraform plan -input=false
+      run: terraform plan -out dev.tfplan -input=false
     
     # Generates an execution apply for Terraform
     - name: Terraform Apply
       if: github.ref == 'refs/heads/main' && github.event_name == 'pull'
-      run: terraform apply -auto-approve -input=false 
+      run: terraform apply dev.tfplan -auto-approve -input=false 

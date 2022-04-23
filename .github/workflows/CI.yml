@@ -1,4 +1,4 @@
-name: 'Terraform'
+name: 'Terraform CI Pipeline'
 
 on:
   push:
@@ -13,7 +13,7 @@ permissions:
 
 jobs:
   terraform:
-    name: 'Terraform'
+    name: 'Terraform CI Pipeline'
     runs-on: ubuntu-latest
     environment: production
     env:
@@ -26,8 +26,6 @@ jobs:
     defaults:
       run:
         shell: bash
-
-      
 
     steps:
     # Checkout the repository to the GitHub Actions runner
