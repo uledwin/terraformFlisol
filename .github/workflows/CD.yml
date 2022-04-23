@@ -1,8 +1,9 @@
 name: 'Terraform CD Pipeline'
 
 on:
-  pull_request_review:
-    types: [submitted]
+  pull_request:
+    branches:
+    - main
 
 permissions:
   contents: read
@@ -10,7 +11,6 @@ permissions:
 jobs:
   terraform:
     name: 'Terraform CD Pipeline'
-    if: github.event.review.state == 'approved'
     runs-on: ubuntu-latest
     environment: production
     env:
