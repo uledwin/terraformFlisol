@@ -90,7 +90,7 @@ resource "tls_private_key" "rsa_ssh_key" {
 
 resource "azurerm_linux_virtual_machine" "app" {
   name                  = "${var.prefix}-${terraform.workspace}-${var.vm_app_name}"
-  count                 = 2
+  count                 = 1
   location              = azurerm_resource_group.rg.location
   resource_group_name   = azurerm_resource_group.rg.name
   network_interface_ids = [azurerm_network_interface.nic.id]
