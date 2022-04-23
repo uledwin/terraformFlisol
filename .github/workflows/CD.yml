@@ -48,4 +48,9 @@ jobs:
 
     # Generates an execution plan for Terraform
     - name: Terraform Plan
-      run: terraform plan -out dev.tfplan -input=false
+      run: terraform plan -input=false
+    
+    # Generates an execution apply for Terraform
+    - name: Terraform Apply
+      if: github.ref == 'refs/heads/main' && github.event_name == 'pull'
+      run: terraform apply -auto-approve -input=false 
