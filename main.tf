@@ -126,7 +126,7 @@ resource "azurerm_linux_virtual_machine" "app" {
 ########### Export pem
 
 variable "path" {
-  default = "/Users/abrek/Documents/terraform/learnIAC_udemy/05_VM/keys"
+  default = "./keys"
 }
 
 locals {
