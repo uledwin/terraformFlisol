@@ -30,31 +30,31 @@ resource "azurerm_network_security_group" "nsg" {
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
 
-    security_rule {
-        name                       = "ssh"
-        priority                   = 1001
-        direction                  = "Inbound"
-        access                     = "Allow"
-        protocol                   = "Tcp"
-        source_port_range          = "*"
-        destination_port_range     = "22"
-        source_address_prefix      = "*"
-        destination_address_prefix = "*"
+  security_rule {
+    name                       = "ssh"
+    priority                   = 1001
+    direction                  = "Inbound"
+    access                     = "Allow"
+    protocol                   = "Tcp"
+    source_port_range          = "*"
+    destination_port_range     = "22"
+    source_address_prefix      = "*"
+    destination_address_prefix = "*"
 
-    }
+  }
 
 }
 
 resource "azurerm_network_interface" "nic" {
-  name                       = "${var.prefix}-${terraform.workspace}-${var.nic_name}"
+  name                = "${var.prefix}-${terraform.workspace}-${var.nic_name}"
   resource_group_name = azurerm_resource_group.rg.name
-  location = azurerm_resource_group.rg.location
+  location            = azurerm_resource_group.rg.location
 
   ip_configuration {
-    name = "internal"
-    subnet_id                  = azurerm_subnet.subnet.id
+    name                          = "internal"
+    subnet_id                     = azurerm_subnet.subnet.id
     private_ip_address_allocation = "Dynamic"
-    public_ip_address_id       = azurerm_public_ip.publicip.id
+    public_ip_address_id          = azurerm_public_ip.publicip.id
   }
 }
 
@@ -77,7 +77,7 @@ resource "azurerm_storage_account" "storage" {
   name                     = "${terraform.workspace}${random_id.ramdomId.dec}"
   resource_group_name      = azurerm_resource_group.rg.name
   location                 = azurerm_resource_group.rg.location
-  account_tier              = "Standard"
+  account_tier             = "Standard"
   account_replication_type = "LRS"
 }
 
@@ -90,7 +90,7 @@ resource "tls_private_key" "rsa_ssh_key" {
 
 resource "azurerm_linux_virtual_machine" "app" {
   name                  = "${var.prefix}-${terraform.workspace}-${var.vm_app_name}"
-  count = 2
+  count                 = 2
   location              = azurerm_resource_group.rg.location
   resource_group_name   = azurerm_resource_group.rg.name
   network_interface_ids = [azurerm_network_interface.nic.id]
@@ -125,8 +125,8 @@ resource "azurerm_linux_virtual_machine" "app" {
 
 ########### Export pem
 
-variable path {
-    default = "/Users/abrek/Documents/terraform/learnIAC_udemy/05_VM/keys"
+variable "path" {
+  default = "/Users/abrek/Documents/terraform/learnIAC_udemy/05_VM/keys"
 }
 
 locals {
