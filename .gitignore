@@ -12,7 +12,7 @@ override.tf.json
 *_override.tf.json
 
 # Keys
-Keys
+keys
 
 # .tfstate files
 *.tfstate
