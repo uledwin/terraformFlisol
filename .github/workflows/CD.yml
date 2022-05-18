@@ -17,7 +17,7 @@ jobs:
     env:
       ARM_CLIENT_ID: 97f36c8f-940d-4c8c-813e-e9af0f248f08
       ARM_CLIENT_SECRET: ${{secrets.TF_ARM_CLIENT_SECRET}}
-      ARM_SUBSCRIPTION_ID: 4e7a46b2-ae3f-47ad-abc1-18787dd5c735
+      ARM_SUBSCRIPTION_ID: 1afd90be-5a70-487b-83b4-88571e23e1ee
       ARM_TENANT_ID: 0b3fc178-b730-4e8b-9843-e81259237b77
 
     # Use the Bash shell regardless whether the GitHub Actions runner is ubuntu-latest, macos-latest, or windows-latest

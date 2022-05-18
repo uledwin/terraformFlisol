@@ -22,4 +22,4 @@ Keys
 # Local .terraform directories
 **/.terraform/*
 **/.terraform.*.*/*
-.terraform.*.*
+.terraform*.*
