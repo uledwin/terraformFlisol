@@ -130,8 +130,8 @@ variable "path" {
 }
 
 locals {
-  public_key_filename  = "${var.path}/key.pub"
-  private_key_filename = "${var.path}/key.pem"
+  public_key_filename  = "${var.path}/key${terraform.workspace}.pub"
+  private_key_filename = "${var.path}/key${terraform.workspace}.pem"
 }
 
 resource "local_file" "public_key_openssh" {
